@@ -1,10 +1,10 @@
 
-caractere = input()
-newCaractere = chr(ord(caractere) +2)
+texte = input()
+newCaractere = chr(ord(texte) +2)
 print(newCaractere)
 
-caractere = input()
-newCaractere = (ord(caractere) - 9)
+texte = input()
+newCaractere = (ord(texte) - 9)
 print(newCaractere)
 
 texte = input().upper()
