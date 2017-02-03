@@ -4,8 +4,10 @@ newCaractere = chr(ord(texte) +2)
 print(newCaractere)
 
 texte = input()
-newCaractere = (ord(texte) - 9)
-print(newCaractere)
+nblettres= len(texte)
+for loop in range(nblettres) :
+   newCaractere = (ord(texte[loop]) - 9)
+   print(newCaractere, end="")
 
 texte = input().upper()
 i = 0
