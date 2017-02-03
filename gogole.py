@@ -2,12 +2,14 @@
 texte = input()
 nblLettres = len(texte)
 for loop in range(nbLettres) :
-     newCaractere = chr(ord(texte[loop]) +2)
-    print(newCaractere, end="")
+   newCaractere = chr(ord(texte[loop]) +2)
+   print(newCaractere, end="")
 
 texte = input()
-newCaractere = (ord(texte) - 9)
-print(newCaractere)
+nblettres= len(texte)
+for loop in range(nblettres) :
+   newCaractere = (ord(texte[loop]) - 9)
+   print(newCaractere, end="")
 
 texte = input().upper()
 i = 0
