@@ -103,8 +103,9 @@ def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a c
     print(dernierelettre, end="") # afficher le dernier caractere code 
 
 
-
-while n < (nbtexte - 1):
+# programme principal de codage qui appelle les 4 programmes fonction :
+while n < (nbtexte - 1): # boucle tant que conditonnelle
+			 # tant que la variable curseur est inferieur a la longueur du texte a coder - 1 (car on compte le 0)
 
     lettres = texte[n:n + 2]
 
@@ -200,6 +201,7 @@ def texte_impaire() :
     dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)
     print(dernierelettre.lower(), end="")
 
+# progrmme principal de decryptage :	
 while n < (nbtexte - 1):
     lettres = texte[n:n + 2]
 
