@@ -3,7 +3,14 @@
 texte = input() #utilisateur doit rentrer le texte qu'il souhaite coder
 nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
 
-alphabet = list ("azertyuiopqsdfghjklmwxcvbn,;:AZERTYUIOP¨QSDFGHJKLMWXCVBN?./1234567890°") # notre alphabet specifique
+
+alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+
+            "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
+
+            "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
 
 n = 0 # variable ou curseur qui selon son reste par la division euclidienne permet de definir le caractere du texte a coder 
 cle = "CODE"  # utile pour le programme de Vigenere
@@ -145,7 +152,14 @@ if nbtexte % 2 == 1:
 texte = input()
 nbtexte = len(texte)
 
-alphabet = list ("azertyuiopqsdfghjklmwxcvbn,;:AZERTYUIOP¨QSDFGHJKLMWXCVBN?./1234567890°") # notre alphabet specifique
+
+alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+
+            "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
+
+            "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]# notre alphabet specifique
 
 n = 0
 cle = "CODE"  # modifiable
