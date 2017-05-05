@@ -1,5 +1,4 @@
-#Cryptage :
-	
+#Cryptage 	
 texte = input() #utilisateur doit rentrer le texte qu'il souhaite coder
 nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
 
@@ -10,13 +9,13 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+            "O", "P", "Q", "R", "S", "T"] # notre alphabet specifique
 
 n = 0 # variable ou curseur qui selon son reste par la division euclidienne permet de definir le caractere du texte a coder 
 cle = "CODE"  # utile pour le programme de Vigenere
 nbcle = len(cle) # retourner la longueur de la chaine de caracteres
 quotient = 2 // nbcle  # on divise le nombre le nombre de lettres codees dans un meme programme de codage par le nombre de caracteres de la cle  
-reste = 2 % nbcle # reste de la division de 2 par le nombre de caracteres de la cle 4
+
 
 
 
@@ -79,19 +78,7 @@ def vige_nere() :
 
 
 
-    for loopi in range(reste):
-
-        for eatchpos in range(70):
-
-            if cle[loopi] == alphabet[eatchpos]:
-
-                nvlcle = eatchpos
-
-                for eachPos in range(70):
-
-                    if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]:
-
-                        print(alphabet[eachPos + nvlcle], end="")
+  
 
 
 
@@ -157,13 +144,12 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]# notre alphabet specifique
+            "O", "P", "Q", "R", "S", "T"]# notre alphabet specifique
 
 n = 0
 cle = "CODE"  # modifiable
 nbcle = len(cle)
 quotient = 2 // nbcle  # penser a changer le 2 quand on veut faire prendre + de 2 lettres en vigenere = pour le reste
-reste = 2 % nbcle
 
 def asci_lettres() :
     for loop in range(2) :
