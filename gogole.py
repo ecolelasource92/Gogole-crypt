@@ -15,7 +15,7 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 n = 0 # variable ou curseur qui selon son reste par la division euclidienne permet de definir le caractere du texte a coder 
 cle = "CODE"  # utile pour le programme de Vigenere
 nbcle = len(cle) # retourner la longueur de la chaine de caracteres
-quotient = 2 // nbcle  # on divise le nombre le nombre de lettres codees dans un meme programme de codage par le nombre de caracteres de la cle  
+quotient = 2 // nbcle  # on divise 2 par le nombre de caracteres de la cle soit 4
 reste = 2 % nbcle # reste de la division de 2 par le nombre de caracteres de la cle 4
 
 
