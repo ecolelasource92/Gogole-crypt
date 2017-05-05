@@ -3,13 +3,7 @@
 texte = input() #utilisateur doit rentrer le texte qu'il souhaite coder
 nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
 
-alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-
-            "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
-
-            "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique 
+alphabet = list ("azertyuiopqsdfghjklmwxcvbn,;:AZERTYUIOP¨QSDFGHJKLMWXCVBN?./1234567890°") # notre alphabet specifique
 
 n = 0 # variable ou curseur qui selon son reste par la division euclidienne permet de definir le caractere du texte a coder 
 cle = "CODE"  # utile pour le programme de Vigenere
@@ -48,11 +42,11 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
 
     for loop in range(2):
 
-        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caracteres
+        for eachPos in range(70): # boucle qui tourne entierement dans notre tableau unique de 70 caracteres
 
             if lettres[loop].upper() == alphabet[eachPos]: # condition
 							   # si le caractere dans le texte sous forme majuscule 
-							   # est identique a un des 50 caracteres dans notre tableau
+							   # est identique a un des 70 caracteres dans notre tableau
 
                 print(alphabet[eachPos + 5], end="") # afficher 2 nouveaux caracteres de 5 rang superieur
 
@@ -64,13 +58,13 @@ def vige_nere() :
 
         for loopi in range(nbcle):
 
-            for eatchpos in range(50):
+            for eatchpos in range(70):
 
                 if cle[loopi] == alphabet[eatchpos]:
 
                     nvlcle = eatchpos
 
-                    for eachPos in range(50):
+                    for eachPos in range(70):
 
                         if lettres[loopi + nbcle * loop].upper() == alphabet[eachPos]:
 
@@ -80,13 +74,13 @@ def vige_nere() :
 
     for loopi in range(reste):
 
-        for eatchpos in range(50):
+        for eatchpos in range(70):
 
             if cle[loopi] == alphabet[eatchpos]:
 
                 nvlcle = eatchpos
 
-                for eachPos in range(50):
+                for eachPos in range(70):
 
                     if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]:
 
@@ -95,15 +89,16 @@ def vige_nere() :
 
 
 def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impaire alors 
-		      # la derniere lettre va etre codee selon une fonction specifique
+		      # le dernier caractere va etre code selon une fonction specifique
 
     dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) # selon le tableau ASCII, convertir en chiffre puis en lettre 
-						      # puis avancer de 6 rang
+						      # puis avancer de 6 rangs
 
     print(dernierelettre, end="") # afficher le dernier caractere code 
 
 
 # programme principal de codage qui appelle les 4 programmes fonction :
+
 while n < (nbtexte - 1): # boucle tant que conditonnelle
 			 # tant que la variable curseur est inferieur a la longueur du texte a coder - 1 (car on compte le 0)
 
@@ -150,13 +145,8 @@ if nbtexte % 2 == 1:
 texte = input()
 nbtexte = len(texte)
 
-alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+alphabet = list ("azertyuiopqsdfghjklmwxcvbn,;:AZERTYUIOP¨QSDFGHJKLMWXCVBN?./1234567890°") # notre alphabet specifique
 
-            "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
-
-            "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 n = 0
 cle = "CODE"  # modifiable
 nbcle = len(cle)
@@ -182,18 +172,18 @@ def notre_alphabet() :
 def vige_nere() :
     for loop in range(quotient):
         for loopi in range(nbcle):
-            for eatchpos in range(50):
+            for eatchpos in range(70):
                 if cle[loopi] == alphabet[eatchpos]:
                     nvlcle = eatchpos
-                    for eachPos in range(50):
+                    for eachPos in range(70):
                         if lettres[loopi - nbcle * loop].upper() == alphabet[eachPos]:
                             print(alphabet[eachPos - nvlcle].lower(), end="")
 
     for loopi in range(reste):
-        for eatchpos in range(50):
+        for eatchpos in range(70):
             if cle[loopi] == alphabet[eatchpos]:
                 nvlcle = eatchpos
-                for eachPos in range(50):
+                for eachPos in range(70):
                     if lettres[loopi - nbcle * quotient].upper() == alphabet[eachPos]:
                         print(alphabet[eachPos - nvlcle].lower(), end="")
 
