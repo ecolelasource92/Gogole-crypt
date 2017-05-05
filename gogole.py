@@ -177,13 +177,7 @@ def vige_nere() :
                         if lettres[loopi - nbcle * loop].upper() == alphabet[eachPos]:
                             print(alphabet[eachPos - nvlcle].lower(), end="")
 
-    for loopi in range(reste):
-        for eatchpos in range(70):
-            if cle[loopi] == alphabet[eatchpos]:
-                nvlcle = eatchpos
-                for eachPos in range(70):
-                    if lettres[loopi - nbcle * quotient].upper() == alphabet[eachPos]:
-                        print(alphabet[eachPos - nvlcle].lower(), end="")
+
 
 def texte_impaire() :
     dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)
