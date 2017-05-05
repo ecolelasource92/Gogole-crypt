@@ -227,3 +227,88 @@ if nbtexte % 2 == 1:
     texte_impaire()
 
 
+
+#test interface : 
+	
+texte = input()
+global a
+nbtexte = len(texte)
+tableau = [0]*nbtexte
+for i in range(nbtexte) :
+    tableau[i] = texte[i]
+alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3","4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+n = 0
+a=0
+cle = "CODE" #modifiable
+nbcle = len(cle) # decouper la cle en 4 caracteres car il y a 4 lettres dans CODE
+quotient = 2// nbcle  # le quotient de la division du nombres de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle
+reste = 2 % nbcle # le reste de la division du nombre de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle 
+def asci_lettres() :
+    global a
+    for loop in range(2) :
+        newCaractere = chr(ord(lettres[loop]) +2) # + 2 rang ordre alphabetique dans Asci et en minuscule
+        tableau[a] = newCaractere
+        a = a + 1 
+def asci_diminu() :
+    global a
+    for loop in range(2) :
+        newCaractere = chr(ord(lettres[loop]) - 9) # - 9 rang dans tableau Asci
+        tableau[a] = newCaractere
+        a = a + 1
+    
+def notre_alphabet() :
+    global a
+    for loop in range(2):
+        for eachPos in range(70):
+            if lettres[loop].upper() == alphabet[eachPos] :
+                tableau[a] = alphabet[eachPos + 5] # + 5 dans notre aplbate qui comprend lettres et caracteres speciaux et en majuscule
+                a = a + 1
+    
+def vige_nere() :
+    global a
+    for loop in range(quotient) :
+        for loopi in range(nbcle) :
+            for eatchpos in range(70) :
+                if cle[loopi] == alphabet[eatchpos] :
+                    nvlcle = eatchpos
+                    for eachPos in range(70):
+                        if lettres[loopi+nbcle*loop]== alphabet[eachPos] :
+                            tableau[a] = alphabet[eachPos + nvlcle]
+                            a = a + 1
+        for loopi in range(reste) :
+            for eatchpos in range(70):
+                if cle[loopi] == alphabet[eatchpos] :
+                        nvlcle = eatchpos
+                for eachPos in range(70):
+                    if lettres[loopi+nbcle*quotient] == alphabet[eachPos] :
+                        tableau[a] = alphabet[eachPos + nvlcle]
+                        a = a + 1
+
+    
+def texte_impaire() :
+    global a
+    dernierelettre = chr(ord(texte[nbtexte-1]) +6)
+    tableau [a] = dernierelettre
+    a = a + 1
+while n < (nbtexte - 1):
+    lettres = texte[n:n + 2]
+    if n % 8 == 0 or n % 8 == 1:
+        asci_lettres()
+        
+    elif n % 8 == 2 or n % 8 == 3:
+        asci_diminu()
+
+    elif n % 8 == 4 or n % 8 == 5:
+        notre_alphabet()
+
+    elif n % 8 == 6 or n % 8 == 7:
+        vige_nere()
+
+    n = n + 2
+if nbtexte % 2 == 1:
+    texte_impaire()
+
+mot = "".join(tableau)
+print(mot)
+        
+
