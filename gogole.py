@@ -135,13 +135,13 @@ while n < (nbtexte - 1): # boucle tant que conditonnelle
         vige_nere() # on appelle la methode 4 (pour les 2 caracteres suivants)
 
 
-	n = n + 2
+	n = n + 2 # n prend des nouvelles valeurs de 2 en 2 pour appeler differentes methodes de cryptage (ca change le reste)
 
 
 
-if nbtexte % 2 == 1:
+if nbtexte % 2 == 1: # si le texte est impair car le reste vaut 1
 
-    texte_impaire()
+    texte_impaire() # appeler pour le tout dernier caractere du texte la derniere methode de cryptage 
 
 	
 #Décryptage :
