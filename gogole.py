@@ -25,7 +25,7 @@ def asci_lettres() : #fonction qui transforme deux caracteres cote a cote en deu
     for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caracteres
 
             newCaractere = chr(ord(lettres[loop]) + 2) 
-		# ord = fonction qui transforme la lettre associee au caractere a son chiffre associe dans ASCII
+		# ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
 		# chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
 		# +2 = avancer de 2 rangs pour avoir une nouvelle lettre
 
@@ -95,7 +95,7 @@ def vige_nere() :
 
 
 
-def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impaire alors 
+def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impair alors 
 		      # le dernier caractere va etre code selon une fonction specifique
 
     dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) # selon le tableau ASCII, convertir en chiffre puis en lettre 
@@ -104,40 +104,38 @@ def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a c
     print(dernierelettre, end="") # afficher le dernier caractere code 
 
 
-# programme principal de codage qui appelle les 4 programmes fonction :
+# programme principal de codage qui appelle les 5 methodes :
 
 while n < (nbtexte - 1): # boucle tant que conditonnelle
 			 # tant que la variable curseur est inferieur a la longueur du texte a coder - 1 (car on compte le 0)
 
-    lettres = texte[n:n + 2]
+    lettres = texte[n:n + 2] # chaque methode de cryptage code 2 caracteres cote a cote dans le texte
 
 
 
-    if n % 8 == 0 or n % 8 == 1:
-
-        asci_lettres()
-
-
-
-    elif n % 8 == 2 or n % 8 == 3:
-
-        asci_diminu()
+    if n % 8 == 0 or n % 8 == 1: # si le reste de la variable n divise par 8 (nombre de methodes de codage) vaut 0 ou 1
+				 
+        asci_lettres() # alors on appelle la methode 1 (pour les 2 premiers caracteres)
 
 
 
-    elif n % 8 == 4 or n % 8 == 5:
+    elif n % 8 == 2 or n % 8 == 3: # si le reste de la variable n divise par 8 vaut 2 ou 3
 
-        notre_alphabet()
-
-
-
-    elif n % 8 == 6 or n % 8 == 7:
-
-        vige_nere()
+        asci_diminu() # on appelle la methode 2 (pour les 2 caracteres suivants)
 
 
+    elif n % 8 == 4 or n % 8 == 5: #si le reste de la variable n divise par 8 vaut 4 ou 5
 
-    n = n + 2
+        notre_alphabet() # on appelle la methode 3 (pour les 2 caracteres suivants)
+
+
+
+    elif n % 8 == 6 or n % 8 == 7: #si le reste de la variable n divise par 8 vaut 6 ou 7
+
+        vige_nere() # on appelle la methode 4 (pour les 2 caracteres suivants)
+
+
+	n = n + 2
 
 
 
@@ -226,89 +224,4 @@ while n < (nbtexte - 1):
 if nbtexte % 2 == 1:
     texte_impaire()
 
-
-
-#test interface : 
-	
-texte = input()
-global a
-nbtexte = len(texte)
-tableau = [0]*nbtexte
-for i in range(nbtexte) :
-    tableau[i] = texte[i]
-alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3","4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
-n = 0
-a=0
-cle = "CODE" #modifiable
-nbcle = len(cle) # decouper la cle en 4 caracteres car il y a 4 lettres dans CODE
-quotient = 2// nbcle  # le quotient de la division du nombres de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle
-reste = 2 % nbcle # le reste de la division du nombre de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle 
-def asci_lettres() :
-    global a
-    for loop in range(2) :
-        newCaractere = chr(ord(lettres[loop]) +2) # + 2 rang ordre alphabetique dans Asci et en minuscule
-        tableau[a] = newCaractere
-        a = a + 1 
-def asci_diminu() :
-    global a
-    for loop in range(2) :
-        newCaractere = chr(ord(lettres[loop]) - 9) # - 9 rang dans tableau Asci
-        tableau[a] = newCaractere
-        a = a + 1
-    
-def notre_alphabet() :
-    global a
-    for loop in range(2):
-        for eachPos in range(70):
-            if lettres[loop].upper() == alphabet[eachPos] :
-                tableau[a] = alphabet[eachPos + 5] # + 5 dans notre aplbate qui comprend lettres et caracteres speciaux et en majuscule
-                a = a + 1
-    
-def vige_nere() :
-    global a
-    for loop in range(quotient) :
-        for loopi in range(nbcle) :
-            for eatchpos in range(70) :
-                if cle[loopi] == alphabet[eatchpos] :
-                    nvlcle = eatchpos
-                    for eachPos in range(70):
-                        if lettres[loopi+nbcle*loop]== alphabet[eachPos] :
-                            tableau[a] = alphabet[eachPos + nvlcle]
-                            a = a + 1
-        for loopi in range(reste) :
-            for eatchpos in range(70):
-                if cle[loopi] == alphabet[eatchpos] :
-                        nvlcle = eatchpos
-                for eachPos in range(70):
-                    if lettres[loopi+nbcle*quotient] == alphabet[eachPos] :
-                        tableau[a] = alphabet[eachPos + nvlcle]
-                        a = a + 1
-
-    
-def texte_impaire() :
-    global a
-    dernierelettre = chr(ord(texte[nbtexte-1]) +6)
-    tableau [a] = dernierelettre
-    a = a + 1
-while n < (nbtexte - 1):
-    lettres = texte[n:n + 2]
-    if n % 8 == 0 or n % 8 == 1:
-        asci_lettres()
-        
-    elif n % 8 == 2 or n % 8 == 3:
-        asci_diminu()
-
-    elif n % 8 == 4 or n % 8 == 5:
-        notre_alphabet()
-
-    elif n % 8 == 6 or n % 8 == 7:
-        vige_nere()
-
-    n = n + 2
-if nbtexte % 2 == 1:
-    texte_impaire()
-
-mot = "".join(tableau)
-print(mot)
-        
 
