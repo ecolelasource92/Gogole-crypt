@@ -91,6 +91,7 @@ def texte_impaire() :
     print(dernierelettre, end="")
 
 
+#code principal
 
 while n < (nbtexte - 1):
 
