@@ -7,6 +7,7 @@ fenetre["bg"] = "blue"
 
 
 
+#PROGRAMME DE CRYPTAGE
 
 def crypte() :
 
@@ -99,6 +100,9 @@ def crypte() :
 
     mot = "".join(tableau) 
     label["text"] = mot
+
+
+#PROGRAMME DE DECRYPTAGE
 
 def decrypte():
     global a
