@@ -21,7 +21,7 @@ def asci_lettres() :
 
     for loop in range(2) :
 
-            newCaractere = chr(ord(lettres[loop]) + 2)
+            newCaractere = chr(ord(lettres[loop])-3)
 
             print(newCaractere, end="")
 
@@ -31,7 +31,7 @@ def asci_diminu() :
 
     for loop in range(2):
 
-        newCaractere = chr(ord(lettres[loop]) - 9)
+        newCaractere = chr(ord(lettres[loop]) + 2)
 
         print(newCaractere, end="")
 
