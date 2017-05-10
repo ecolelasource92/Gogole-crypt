@@ -50,24 +50,6 @@ def notre_alphabet() :
 
 def vige_nere() :
 
-    for loop in range(quotient):
-
-        for loopi in range(nbcle):
-
-            for eatchpos in range(50):
-
-                if cle[loopi] == alphabet[eatchpos]:
-
-                    nvlcle = eatchpos
-
-                    for eachPos in range(50):
-
-                        if lettres[loopi + nbcle * loop].upper() == alphabet[eachPos]:
-
-                            print(alphabet[eachPos + nvlcle], end="")
-
-
-
     for loopi in range(reste):
 
         for eatchpos in range(50):
