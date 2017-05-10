@@ -1,0 +1,233 @@
+from tkinter import *
+fenetre = Tk()
+fenetre.geometry("1000x700+0+0")
+fenetre.title("Gogole cript") 
+fenetre["bg"] = "blue"
+
+
+
+
+
+def crypte() :
+
+    texte = texteacrypter.get()
+    global a
+    nbtexte = len(texte) 
+    tableau = [0]*nbtexte
+    for i in range(nbtexte) :
+        tableau[i] = texte[i]
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3","4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+    n = 0
+    a = 0
+    cle = "CODE" #modifiable
+    nbcle = len(cle) # decouper la cle en 4 caracteres car il y a 4 lettres dans CODE
+    quotient = 2// nbcle  # le quotient de la division du nombres de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle
+    reste = 2 % nbcle 
+    def asci_lettres() :
+        global a
+        for loop in range(2) :
+            newCaractere = chr(ord(lettres[loop]) +1) # + 1 rang ordre alphabetique dans Asci et en minuscule
+            tableau[a] = newCaractere
+            if a < (nbtexte-1) :
+                a = a + 1 
+    def asci_diminu() :
+        global a
+        for loop in range(2) :
+            newCaractere = chr(ord(lettres[loop]) +8) # +8 rang dans tableau Asci
+            tableau[a] = newCaractere
+            if a < (nbtexte-1):
+                a = a + 1
+    
+    def notre_alphabet() :
+        global a
+        for loop in range(2):
+            for eachPos in range(50):
+                if lettres[loop].upper() == alphabet[eachPos] :
+                    tableau[a] = alphabet[eachPos + 5] # + 5 dans notre aplbate qui comprend lettres et caracteres speciaux et en majuscule
+                    if a < (nbtexte - 1):
+                        a = a + 1
+    
+    def vige_nere() :
+        global a 
+        for loop in range(quotient) :
+            for loopi in range(nbcle) :
+                for eatchpos in range(50) :
+                    if cle[loopi] == alphabet[eatchpos] :
+                        nvlcle = eatchpos
+                        for eachPos in range(50):
+                            if lettres[loopi+nbcle*loop]== alphabet[eachPos] :
+                                tableau[a] = alphabet[eachPos + nvlcle]
+                                if a < (nbtexte-1) :
+                                    a = a +1
+        for loopi in range(reste):
+            for eatchpos in range(50):
+                if cle[loopi] == alphabet[eatchpos]:
+                    nvlcle = eatchpos
+                    for eachPos in range(50):
+                        if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]:
+                           tableau[a] = alphabet[eachPos + nvlcle]
+                           if a < (nbtexte-1):
+                               a = a + 1
+    
+        
+            
+                        
+                    
+
+     
+    def texte_impaire() :
+        global a
+        dernierelettre = chr(ord(texte[nbtexte-1]) +6)
+        tableau[a] = dernierelettre
+    
+    while n < (nbtexte - 1):
+        lettres = texte[n:n + 2]
+        if n % 8 == 0 or n % 8 == 1:
+            asci_lettres()
+        
+        elif n % 8 == 2 or n % 8 == 3:
+            asci_diminu()
+    
+        elif n % 8 == 4 or n % 8 == 5:
+            notre_alphabet()
+
+        elif n % 8 == 6 or n % 8 == 7:
+            vige_nere()
+        n = n + 2
+    if nbtexte % 2 == 1:
+        texte_impaire()
+
+    mot = "".join(tableau) 
+    label["text"] = mot
+
+def decrypte():
+    global a
+    texte = texteadecrypter.get() 
+    nbtexte = len(texte)
+    tableau = [0]*nbtexte
+    for i in range(nbtexte) :
+        tableau[i] = texte[i]
+
+
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+
+            "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
+
+            "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]# notre alphabet specifique
+
+    n = 0
+    a = 0
+    cle = "CODE"  # modifiable
+    nbcle = len(cle)
+    quotient = 2 // nbcle  # penser a changer le 2 quand on veut faire prendre + de 2 lettres en vigenere = pour le reste
+    reste = 2 % nbcle
+
+    def asci_lettres() :
+        global a
+        for loop in range(2) :
+                newCaractere = chr(ord(lettres[loop]) - 1 )
+                tableau[a] = newCaractere
+                if a < (nbtexte - 1) :
+                    a = a + 1
+
+    def asci_diminue() :
+        global a
+        for loop in range(2):
+            newCaractere = chr(ord(lettres[loop]) - 8 )
+            tableau[a] = newCaractere
+            if a < (nbtexte -1):
+                a = a + 1
+
+    def notre_alphabet() :
+        global a
+        for loop in range(2):
+            for eachPos in range(50):
+                if lettres[loop].upper() == alphabet[eachPos]:
+                    tableau[a] = alphabet[eachPos - 5].lower()
+                    if a < (nbtexte - 1):
+                        a = a + 1
+
+    def vige_nere() :
+        global a
+        for loop in range(quotient):
+            for loopi in range(nbcle):
+                for eatchpos in range(50):
+                    if cle[loopi] == alphabet[eatchpos]:
+                        nvlcle = eatchpos
+                        for eachPos in range(50):
+                            if lettres[loopi - nbcle * loop].upper() == alphabet[eachPos]:
+                                tableau[a] = alphabet[eachPos - nvlcle].lower()
+                                if a < (nbtexte - 1):
+                                    a = a + 1
+
+        for loopi in range(reste):
+            for eatchpos in range(50):
+                if cle[loopi] == alphabet[eatchpos]:
+                    nvlcle = eatchpos
+                    for eachPos in range(50):
+                        if lettres[loopi - nbcle * quotient].upper() == alphabet[eachPos]:
+                            tableau[a] = alphabet[eachPos - nvlcle].lower()
+                            if a < (nbtexte -1):
+                                a = a + 1
+
+    def texte_impaire() :
+        dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)
+        tableau[a] = dernierelettre.lower()
+
+	
+    while n < (nbtexte - 1):
+        lettres = texte[n:n + 2]
+
+        if n % 8 == 0 or n % 8 == 1:
+            asci_lettres()
+
+        elif n % 8 == 2 or n % 8 == 3:
+            asci_diminue()
+
+        elif n % 8 == 4 or n % 8 == 5:
+            notre_alphabet()
+
+        elif n % 8 == 6 or n % 8 == 7:
+            vige_nere()
+
+        n = n + 2
+
+    if nbtexte % 2 == 1:
+        texte_impaire()
+    
+    mot ="".join(tableau)
+    lebel["text"] = mot
+    
+
+
+
+texteacrypter = StringVar() 
+texteadecrypter = StringVar() 
+
+
+
+texte1 = Label(fenetre,text="Gogole crypt").pack()
+texte2 = Label(fenetre,text="Testez notre nouvelle methode de cryptage revolutionnaire et presque indecryptable...").pack() 
+texte3 = Label(fenetre,text="Texte à crypter :").place(x="400",y="100") 
+entree1 = Entry(fenetre,textvariable=texteacrypter).place(x="400",y="150")
+label =Label(fenetre)
+label["bg"] = "blue"
+label["fg"] = "white"
+label.place(x="400",y="250") 
+bouton1 = Button(fenetre,command=crypte)
+bouton1["text"] = "Crypter"
+bouton1.place(x="400", y="200")
+texte4 = Label(fenetre, text="Texte à décrypter :").place(x="400",y="400") 
+entree2 = Entry(fenetre,textvariable=texteadecrypter).place(x="400", y="450")
+bouton2 = Button(fenetre,command= decrypte)
+bouton2["text"] = "Décrypter"
+bouton2.place(x="400", y="500")
+lebel=Label(fenetre)
+lebel["bg"] = "blue"
+lebel["fg"] = "white"
+lebel.place(x="400", y="550") 
+texte5 = Label(fenetre,text="Attention, les accents ne sont pas lus par ce programme").pack()  
+
+
