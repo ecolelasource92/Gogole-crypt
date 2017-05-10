@@ -48,7 +48,7 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
 
     for loop in range(2):
 
-        for eachPos in range(70): # boucle qui tourne entierement dans notre tableau unique de 70 caracteres
+        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 70 caracteres
 
             if lettres[loop].upper() == alphabet[eachPos]: # condition
 							   # si le caractere dans le texte sous forme majuscule 
@@ -60,19 +60,19 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
 
 def vige_nere() :
 
-    for loop in range(quotient):
+    for loop in range(reste):
 
         for loopi in range(nbcle):
 
-            for eatchpos in range(70):
+            for eatchpos in range(50):
 
                 if cle[loopi] == alphabet[eatchpos]:
 
                     nvlcle = eatchpos
 
-                    for eachPos in range(70):
+                    for eachPos in range(50):
 
-                        if lettres[loopi + nbcle * loop].upper() == alphabet[eachPos]:
+                        if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]:
 
                             print(alphabet[eachPos + nvlcle], end="")
 
@@ -127,7 +127,6 @@ while n < (nbtexte - 1): # boucle tant que conditonnelle
 
 
 if nbtexte % 2 == 1: # si le texte est impair car le reste vaut 1
-
     texte_impaire() # appeler pour le tout dernier caractere du texte la derniere methode de cryptage 
 
 	
@@ -139,7 +138,6 @@ nbtexte = len(texte)
 
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-
             "V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3",
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
@@ -168,13 +166,13 @@ def notre_alphabet() :
                 print(alphabet[eachPos - 5].lower(), end="")
 
 def vige_nere() :
-    for loop in range(quotient):
+    for loop in range(reste):
         for loopi in range(nbcle):
-            for eatchpos in range(70):
+            for eatchpos in range(50):
                 if cle[loopi] == alphabet[eatchpos]:
                     nvlcle = eatchpos
-                    for eachPos in range(70):
-                        if lettres[loopi - nbcle * loop].upper() == alphabet[eachPos]:
+                    for eachPos in range(50):
+                        if lettres[loopi - nbcle * quotient].upper() == alphabet[eachPos]:
                             print(alphabet[eachPos - nvlcle].lower(), end="")
 
 
