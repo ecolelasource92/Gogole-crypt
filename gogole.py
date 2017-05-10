@@ -24,10 +24,10 @@ def asci_lettres() : #fonction qui transforme deux caracteres cote a cote en deu
 
     for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caracteres
 
-            newCaractere = chr(ord(lettres[loop]) + 2) 
+            newCaractere = chr(ord(lettres[loop]) + 1) 
 		# ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
 		# chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
-		# +2 = avancer de 2 rangs pour avoir une nouvelle lettre
+		# +2 = avancer de 1 rangs pour avoir une nouvelle lettre
 
 
             print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes 
@@ -38,8 +38,8 @@ def asci_diminu() : # meme fonction mais cette fois sous forme de soustraction
 
     for loop in range(2):
 
-        newCaractere = chr(ord(lettres[loop]) - 9) # meme chose que precedemment en utilisant le tableau ASCII
-						   # mais cette fois on soustrait de 9 rangs pour avoir une nouvelle lettre
+        newCaractere = chr(ord(lettres[loop]) + 8) # meme chose que precedemment en utilisant le tableau ASCII
+						   # mais cette fois on avance de 8 rangs pour avoir une nouvelle lettre
 
         print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes 
 
@@ -135,7 +135,7 @@ while n < (nbtexte - 1): # boucle tant que conditonnelle
         vige_nere() # on appelle la methode 4 (pour les 2 caracteres suivants)
 
 
-	n = n + 2 # n prend des nouvelles valeurs de 2 en 2 pour appeler differentes methodes de cryptage (ca change le reste)
+1	n = n + 2 # n prend des nouvelles valeurs de 2 en 2 pour appeler differentes methodes de cryptage (ca change le reste)
 
 
 
@@ -167,12 +167,12 @@ reste = 2 % nbcle
 
 def asci_lettres() :
     for loop in range(2) :
-            newCaractere = chr(ord(lettres[loop]) - 2)
+            newCaractere = chr(ord(lettres[loop]) - 1)
             print(newCaractere, end="")
 
 def asci_diminue() :
     for loop in range(2):
-        newCaractere = chr(ord(lettres[loop]) + 9)
+        newCaractere = chr(ord(lettres[loop]) -8)
         print(newCaractere, end="")
 
 def notre_alphabet() :
