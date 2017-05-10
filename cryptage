@@ -17,7 +17,7 @@ reste = 2 % nbcle
 
 
 
-def asci_lettres() :
+def asci_diminu() :
 
     for loop in range(2) :
 
@@ -26,8 +26,7 @@ def asci_lettres() :
             print(newCaractere, end="")
 
 
-
-def asci_diminu() :
+def asci_lettres() :
 
     for loop in range(2):
 
@@ -101,13 +100,13 @@ while n < (nbtexte - 1):
 
     if n % 8 == 0 or n % 8 == 1:
 
-        asci_lettres()
+        asci_diminu()
 
 
 
     elif n % 8 == 2 or n % 8 == 3:
 
-        asci_diminu()
+        asci_lettres()
 
 
 
