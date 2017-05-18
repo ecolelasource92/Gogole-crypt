@@ -14,7 +14,7 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de definir la place caractere a coder dans texte
 cle = "CODE"  # utile pour le programme de Vigenere
 nbcle = len(cle) # retourner la longueur de la chaine de caracteres qui compose la cle
-quotient = 2 // nbcle  # penser a changer le 2 quand on veut faire prendre + de 2 lettres en vigenere = pour le reste
+quotient = 2 // nbcle  
 reste = 2 % nbcle
 
 
