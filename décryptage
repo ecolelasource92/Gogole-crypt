@@ -1,6 +1,8 @@
-texte = input()
+# Decryptage
 
-nbtexte = len(texte)
+texte = input()  #utilisateur doit rentrer le texte qu'il souhaite coder
+
+nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
 
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
@@ -9,45 +11,56 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-n = 0
-cle = "CODE"  # modifiable
-nbcle = len(cle)
-quotient = 2 // nbcle  # penser a changer le 2 quand on veut faire prendre + de 2 lettres en vigenere = pour le reste
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+
+n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de definir la place caractere a coder dans texte
+cle = "CODE"  # utile pour le programme de Vigenere
+nbcle = len(cle) # retourner la longueur de la chaine de caracteres qui compose la cle
+quotient = 2 // nbcle 
 reste = 2 % nbcle
 
 
 
+def asci_diminu() : #fonction qui transforme deux caracteres cote a cote en deux lettres contenues dans le tableau ASCII
 
-def asci_diminu() :
-
-    for loop in range(2) :
+    for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
 
             newCaractere = chr(ord(lettres[loop]) - 1)
+            # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
+            # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
+	# -1 = reculer de 1 rang pour retrouver le rang intial et donc pour sortir le caractere intial
 
-            print(newCaractere, end="")
+            print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes sur une meme ligne
 
 
+def asci_lettres() : # meme fonction de decryptage
 
-def asci_lettres() :
-
-    for loop in range(2):
+    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
 
         newCaractere = chr(ord(lettres[loop]) - 8)
+         # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
+         # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
+         # -8 = reculer de 8 rangs pour retrouver le rang intial et donc pour sortir le caractere intial
 
         print(newCaractere, end="")
 
 
+def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
 
-def notre_alphabet() :
 
-    for loop in range(2):
+    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
 
-        for eachPos in range(50):
+        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caracteres
 
             if lettres[loop].upper() == alphabet[eachPos]:
+            # "if" est une condition
+            # si le caractere dans le texte qui est sous forme majuscule 
+	# est identique a un des 50 caracteres repertories dans notre tableau
 
-                print(alphabet[eachPos - 5].lower(), end="")
+                print(alphabet[eachPos - 5].lower(), end="") 
+                # afficher 2 nouveaux caracteres de 5 rangs inferieur
+                # -5 = reculer de 5 rangs pour retrouver le rang intial et donc pour sortir le caractere intial
+                
 
 
 def vige_nere() :
