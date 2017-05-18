@@ -1,8 +1,8 @@
-from tkinter import *
-fenetre = Tk()
-fenetre.geometry("1000x700+0+0")
-fenetre.title("Gogole cript") 
-fenetre["bg"] = "blue"
+from tkinter import *  #importer les fonctions de tkinter
+fenetre = Tk() #creation d'une fenetre tkinter
+fenetre.geometry("1000x700+0+0") #création des dimensions de la fenetre
+fenetre.title("Gogole crypt")  #mettre un titre "gogole crypt a la fenetre
+fenetre["bg"] = "turquoise3" #mettre le fond de la fenetre en turquoise
 
 
 
@@ -11,12 +11,12 @@ fenetre["bg"] = "blue"
 
 def crypte() :
 
-    texte = texteacrypter.get()
-    global a
+    texte = texteacrypter.get() 
+    global a #globaliser tous les "a" du programme pour que les "a" de chaque fonction soit le même "a"
     nbtexte = len(texte) 
-    tableau = [0]*nbtexte
+    tableau = [0]*nbtexte #création d'un tableau comporter le meme nombre de case que le nombre de caractere du texte entré
     for i in range(nbtexte) :
-        tableau[i] = texte[i]
+        tableau[i] = texte[i] #entrer le texte dans les cases du tableau
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V", "W", "X", "Y", "Z", " ", ".", ",", ":", "!", "?", ";", "#", "(", ")", "'", "\\", "\"", "-", "1", "2", "3","4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
     n = 0
     a = 0
@@ -27,9 +27,9 @@ def crypte() :
         global a
         for loop in range(2) :
             newCaractere = chr(ord(lettres[loop]) +1) # + 1 rang ordre alphabetique dans Asci et en minuscule
-            tableau[a] = newCaractere
+            tableau[a] = newCaractere #remplacer le caractere a la case numero "a" par la nouveau caractere
             if a < (nbtexte-1) :
-                a = a + 1 
+                a = a + 1 #la variable "a" fait + 1
     def asci_diminu() :
         global a
         for loop in range(2) :
@@ -87,8 +87,8 @@ def crypte() :
     if nbtexte % 2 == 1:
         texte_impaire()
 
-    mot = "".join(tableau) 
-    label["text"] = mot
+    mot = "".join(tableau) #rassembler les caracteres du tableau
+    label["text"] = mot #printer le texte modifié 
 
 
 #PROGRAMME DE DECRYPTAGE
@@ -178,37 +178,37 @@ def decrypte():
     if nbtexte % 2 == 1:
         texte_impaire()
     
-    mot ="".join(tableau)
+    mot ="".join(tableau) 
     lebel["text"] = mot
     
 
 
 
-texteacrypter = StringVar() 
-texteadecrypter = StringVar() 
+texteacrypter = StringVar() #initialisation de l'entrée texteacrypter
+texteadecrypter = StringVar() #initialisation de l'entrée texteadecrypter
 
 
 
-texte1 = Label(fenetre,text="Gogole crypt").pack()
-texte2 = Label(fenetre,text="Testez notre nouvelle methode de cryptage revolutionnaire et presque indecryptable...").pack() 
-texte3 = Label(fenetre,text="Texte à crypter :").place(x="400",y="100") 
-entree1 = Entry(fenetre,textvariable=texteacrypter).place(x="400",y="150")
-label =Label(fenetre)
-label["bg"] = "blue"
-label["fg"] = "white"
-label.place(x="400",y="250") 
-bouton1 = Button(fenetre,command=crypte)
-bouton1["text"] = "Crypter"
-bouton1.place(x="400", y="200")
-texte4 = Label(fenetre, text="Texte à décrypter :").place(x="400",y="400") 
-entree2 = Entry(fenetre,textvariable=texteadecrypter).place(x="400", y="450")
-bouton2 = Button(fenetre,command= decrypte)
-bouton2["text"] = "Décrypter"
-bouton2.place(x="400", y="500")
-lebel=Label(fenetre)
-lebel["bg"] = "blue"
-lebel["fg"] = "white"
-lebel.place(x="400", y="550") 
-texte5 = Label(fenetre,text="Attention, les accents ne sont pas lus par ce programme").pack()  
+texte1 = Label(fenetre,text="Gogole crypt").pack() #creation d'une zone de texte en haut de la fenetre et centrée"Gogole crypt"
+texte2 = Label(fenetre,text="Testez notre nouvelle methode de cryptage revolutionnaire et presque indecryptable...").pack() #creation d'une seconde zone de texte en haut de la fenetre et centrée
+texte3 = Label(fenetre,text="Texte à crypter :").place(x="400",y="100") #création d'une zone de texte "texte à crypter" et placement dans la fenetre
+entree1 = Entry(fenetre,textvariable=texteacrypter).place(x="400",y="150") #création d'une entrée "texteacrypter" et son placement dans la fenetre
+label =Label(fenetre) #creation d'une sortie sur la fenetre
+label["bg"] = "turquoise3" #mettre le fond de la sortie en turquoise
+label["fg"] = "black" #mettre l'écriture de la sortie en noir
+label.place(x="400",y="250") #placement de la sortie sur la fenetre
+bouton1 = Button(fenetre,command=crypte) #creation d'un bouton ayant pour fonction "crypt"
+bouton1["text"] = "Crypter" #écrire "Crypter" sur le bouton
+bouton1.place(x="400", y="200") #Placement du bouton sur la fenetre
+texte4 = Label(fenetre, text="Texte à décrypter :").place(x="400",y="400") #creation d'une zone de texte "texte a décrypter" et placement dans la fenetre
+entree2 = Entry(fenetre,textvariable=texteadecrypter).place(x="400", y="450") #création d'une deuxieme entrée "texteadecrypter" et son placement dans la fenetre
+bouton2 = Button(fenetre,command= decrypte) #création d'un deuxieme bouton ayant pour fonction "decrypte"
+bouton2["text"] = "Décrypter" #ecrire "décrypteré sur le bouton
+bouton2.place(x="400", y="500") #placement du bouton sur la fenetre
+lebel=Label(fenetre) #creation d'une sortie
+lebel["bg"] = "turquoise3" #mettre le fond de la sortie en turquoise
+lebel["fg"] = "black" #mettre l'écriture de la sortie en noir
+lebel.place(x="400", y="550") #placement de la sortie
+texte5 = Label(fenetre,text="Attention, les accents ne sont pas lus par ce programme").pack() #creation d'une zone de texte en haut de la fenetre et centrée
 
 
