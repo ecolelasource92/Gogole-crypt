@@ -64,7 +64,7 @@ def vige_nere() :  # fontion qui se refere au tableau que nous avons cree, qui p
         for eatchpos in range(50): #chercher la lettre de la cle dans notre alphabet specifique
 
             if cle[loopi] == alphabet[eatchpos]: 
-	    # attribuer la lettre de la cle demander a son postionnement dans le tableau de notre alphabet
+	    # attribuer la lettre de la cle demandee a son postionnement dans le tableau de notre alphabet
 
                 nvlcle = eatchpos 
 
