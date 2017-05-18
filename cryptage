@@ -44,7 +44,6 @@ def asci_lettres() :  # même fonction
 
 def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
-
     for loop in range(2): #boucle qui tourne deux fois pour coder les deux caractères côte à côte
 
         for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caractères
@@ -55,7 +54,6 @@ def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée
 	     # est identique a un des 50 caractères répertoriés dans notre tableau
 
                 print(alphabet[eachPos + 5], end="")  # afficher 2 nouveaux caractères de 5 rangs supérieurs
-
 
 
 def vige_nere() :  # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
@@ -122,7 +120,7 @@ while n < (nbtexte - 1): # boucle tant que conditonnelle
 
 
     n = n + 2
-    # de 2 en 2 pour que ce soit les 2 caractères suivant qui soient coder a chaque changement de méthode de cryptage
+    # de 2 en 2 pour que ce soit les 2 caractères suivant qui soient codés a chaque changement de méthode de cryptage
 
 
 if nbtexte % 2 == 1: # si le texte est impair car le reste vaut 1
