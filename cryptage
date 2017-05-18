@@ -35,7 +35,8 @@ def asci_lettres() :  # meme fonction
 
     for loop in range(2):
 
-        newCaractere = chr(ord(lettres[loop]) + 8) # +8 = avancer de 8 rangs pour sortir un nouveau caractere
+        newCaractere = chr(ord(lettres[loop]) + 8) 
+	# +8 = avancer de 8 rangs pour sortir un nouveau caractere
 
         print(newCaractere, end="")
 
@@ -50,7 +51,7 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
             if lettres[loop].upper() == alphabet[eachPos]:
              # condition
              # si le caractere dans le texte qui est sous forme majuscule 
-	 # est identique a un des 50 caracteres repertories dans notre tableau
+	     # est identique a un des 50 caracteres repertories dans notre tableau
 
                 print(alphabet[eachPos + 5], end="")  # afficher 2 nouveaux caracteres de 5 rangs superieur
 
