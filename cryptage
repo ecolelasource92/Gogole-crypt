@@ -1,4 +1,5 @@
 #Cryptage 
+
 texte = input()  #utilisateur doit rentrer le texte qu'il souhaite coder
 nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
 
