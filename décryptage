@@ -1,8 +1,8 @@
-## Decryptage
+# Décryptage
 
 texte = input()  #utilisateur doit rentrer le texte qu'il souhaite coder
 
-nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
+nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caractères
 
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
@@ -11,80 +11,80 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet spécifique
 
-n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de definir la place caractere a coder dans texte
-cle = "CODE"  # utile pour la méthode de cryptage  Vigenere
-nbcle = len(cle) # retourner la longueur de la chaine de caracteres qui compose la cle
-quotient = 2 // nbcle # utile pour la méthode de cryptage  Vigenere
-reste = 2 % nbcle # utile pour la méthode de cryptage Vigenere
+n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de définir la place du caractère à coder dans le texte
+cle = "CODE"  # utile pour la méthode de cryptage  Vigenère
+nbcle = len(cle) # retourner la longueur de la chaine de caractères qui compose la clé
+quotient = 2 // nbcle # utile pour la méthode de cryptage Vigenère
+reste = 2 % nbcle # utile pour la méthode de cryptage Vigenère
 
 
 
-def asci_diminu() : #fonction qui transforme deux caracteres cote a cote en deux lettres contenues dans le tableau ASCII
+def asci_diminu() : #fonction qui transforme deux caractères côte à côte en deux lettres contenues dans le tableau ASCII
 
-    for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
+    for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caractères côte à côte
 
             newCaractere = chr(ord(lettres[loop]) - 1)
-            # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
-            # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
-	# -1 = reculer de 1 rang pour retrouver le rang intial et donc pour sortir le caractere intial
+            # ord = fonction qui transforme la lettre associée au caractère à son chiffre complémentaire dans ASCII
+            # chr = fonction qui transforme chaque caractère en associant le chiffre du tableau ASCII en sa lettre associée
+	# -1 = reculer de 1 rang pour retrouver le rang intial et donc pour sortir le caractère intial
 
-            print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes sur une meme ligne
+            print(newCaractere, end="") # sortir les 2 nouveaux caractères codés sur une même ligne
 
 
-def asci_lettres() : # meme fonction de decryptage
+def asci_lettres() : # même fonction de décryptage
 
-    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
+  for loop in range(2): #boucle qui tourne deux fois pour coder les deux caractères côte à côte
 
         newCaractere = chr(ord(lettres[loop]) - 8)
-         # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
-         # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
-         # -8 = reculer de 8 rangs pour retrouver le rang intial et donc pour sortir le caractere intial
+         # ord = fonction qui transforme la lettre associée au caractère à son chiffre complementaire dans ASCII
+         # chr = fonction qui transforme chaque caractère en associant le chiffre du tableau ASCII en sa lettre associée
+         # -8 = reculer de 8 rangs pour retrouver le rang intial et donc pour sortir le caractère intial
 
         print(newCaractere, end="")
 
 
-def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
+def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
 
-    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
+    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caractères côte à côte
 
-        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caracteres
+        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caractères
 
             if lettres[loop].upper() == alphabet[eachPos]:
             # "if" est une condition
-            # si le caractere dans le texte qui est sous forme majuscule 
-	# est identique a un des 50 caracteres repertories dans notre tableau
+            # si le caractère dans le texte qui est sous forme majuscule 
+	# est identique a un des 50 caracteres repertoriés dans notre tableau
 
                 print(alphabet[eachPos - 5].lower(), end="") 
-                # afficher 2 nouveaux caracteres de 5 rangs inferieur
-                # -5 = reculer de 5 rangs pour retrouver le rang intial et donc pour sortir le caractere intial
+                # afficher 2 nouveaux caractères de 5 rangs inférieurs
+                # -5 = reculer de 5 rangs pour retrouver le rang intial et donc pour sortir le caractère intial
                 
 
 
-def vige_nere() : # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
+def vige_nere() : # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
 
     for loopi in range(reste):
-        for eatchpos in range(50): #chercher la lettre de la cle dans notre alphabet specifique
-            if cle[loopi] == alphabet[eatchpos]:  # attribuer la lettre de la cle demander a son postionnement dans le tableau de notre alphabet
+        for eatchpos in range(50): #chercher la lettre de la clé dans notre alphabet spécifique
+            if cle[loopi] == alphabet[eatchpos]:  # attribuer la lettre de la clé demandé a son positionnement dans le tableau de notre alphabet
                 nvlcle = eatchpos 
                 for eachPos in range(50):
                     if lettres[loopi - nbcle * quotient] == alphabet[eachPos]:
-		    # faire la position de la lettre a crypter - le nombre de lettre de la cle * quotient
-		    # pour être sur que ce caractere existe dans notre alphabet specifique 
+		    # faire la position de la lettre a crypter - le nombre de lettre de la clé * quotient
+		    # pour être sur que ce caractere existe dans notre alphabet spécifique 
                         print(alphabet[eachPos - nvlcle].lower(), end="")  #afficher les 2 nouveaux caractères
 
 
 
 
-def texte_impaire() : # si le texte est impaire le dernier caractere va être coder ici
+def texte_impaire() : # si le texte est impaire le dernier caractère va être coder ici
 
     dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)  # selon le tableau ASCII, convertir en chiffre puis en lettre puis reculer de 6 rangs
 
    
-    print(dernierelettre.lower(), end="") # afficher le dernier caractere code 
+    print(dernierelettre.lower(), end="") # afficher le dernier caractère codé 
 
 #programme principal appelant les 5 méthodes de décryptage 
 # même chose que pour le cryptage
