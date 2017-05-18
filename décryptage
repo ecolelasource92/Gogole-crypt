@@ -1,4 +1,4 @@
-# Decryptage
+## Decryptage
 
 texte = input()  #utilisateur doit rentrer le texte qu'il souhaite coder
 
@@ -14,10 +14,10 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
             "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
 
 n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de definir la place caractere a coder dans texte
-cle = "CODE"  # utile pour le programme de Vigenere
+cle = "CODE"  # utile pour la méthode de cryptage  Vigenere
 nbcle = len(cle) # retourner la longueur de la chaine de caracteres qui compose la cle
-quotient = 2 // nbcle 
-reste = 2 % nbcle
+quotient = 2 // nbcle # utile pour la méthode de cryptage  Vigenere
+reste = 2 % nbcle # utile pour la méthode de cryptage Vigenere
 
 
 
@@ -63,26 +63,31 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
                 
 
 
-def vige_nere() :
+def vige_nere() : # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
+
 
     for loopi in range(reste):
-        for eatchpos in range(50):
-            if cle[loopi] == alphabet[eatchpos]:
-                nvlcle = eatchpos
+        for eatchpos in range(50): #chercher la lettre de la cle dans notre alphabet specifique
+            if cle[loopi] == alphabet[eatchpos]:  # attribuer la lettre de la cle demander a son postionnement dans le tableau de notre alphabet
+                nvlcle = eatchpos 
                 for eachPos in range(50):
                     if lettres[loopi - nbcle * quotient] == alphabet[eachPos]:
-                        print(alphabet[eachPos - nvlcle].lower(), end="")
+		    # faire la position de la lettre a crypter - le nombre de lettre de la cle * quotient
+		    # pour être sur que ce caractere existe dans notre alphabet specifique 
+                        print(alphabet[eachPos - nvlcle].lower(), end="")  #afficher les 2 nouveaux caractères
 
 
 
 
-def texte_impaire() :
+def texte_impaire() : # si le texte est impaire le dernier caractere va être coder ici
 
-    dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)
+    dernierelettre = chr(ord(texte[nbtexte - 1]) - 6)  # selon le tableau ASCII, convertir en chiffre puis en lettre puis reculer de 6 rangs
 
-    print(dernierelettre.lower(), end="")
+   
+    print(dernierelettre.lower(), end="") # afficher le dernier caractere code 
 
-
+#programme principal appelant les 5 méthodes de décryptage 
+# même chose que pour le cryptage
 
 while n < (nbtexte - 1):
 
