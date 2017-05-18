@@ -50,7 +50,7 @@ def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, q
             if lettres[loop].upper() == alphabet[eachPos]:
              # condition
              # si le caractere dans le texte qui est sous forme majuscule 
-	 # est identique a un des 50 caracteres repertories dans notre tableau
+	     # est identique a un des 50 caracteres repertories dans notre tableau
 
                 print(alphabet[eachPos + 5], end="")  # afficher 2 nouveaux caracteres de 5 rangs superieur
 
@@ -75,17 +75,19 @@ def vige_nere() :
 
 
 def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impair alors 
-	          # le dernier caractere va etre code selon une fonction specifique
+	              # le dernier caractere va etre code selon une fonction specifique
 
-    dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) # selon le tableau ASCII, convertir en chiffre puis en lettre 
-				      # puis avancer de 6 rangs
+    dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) 
+    # selon le tableau ASCII, convertir en chiffre puis en lettre 
+    # puis avancer de 6 rangs
 
     print(dernierelettre, end="") # afficher le dernier caractere code 
+
 
 # Voici le programme principal de codage qui appelle les 5 methodes :
 
 while n < (nbtexte - 1): # boucle tant que conditonnelle
-	             # tant que la variable curseur est inferieure a la longueur du texte a coder - 1 (car 0 equivaut a 1)
+	                 # tant que la variable curseur est inferieure a la longueur du texte a coder - 1 (car 0 equivaut a 1)
 
     lettres = texte[n:n + 2] # chaque methode de cryptage code 2 caracteres cote a cote dans le texte
 
