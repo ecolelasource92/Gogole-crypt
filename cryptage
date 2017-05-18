@@ -1,7 +1,7 @@
 #Cryptage 
 
 texte = input()  #utilisateur doit rentrer le texte qu'il souhaite coder
-nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caracteres
+nbtexte = len(texte) # fonction qui permet de retourner la longueur de la chaine de caractères
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
 
@@ -9,121 +9,122 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet specifique
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet spécifique
 
-n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de definir la place caractere a coder dans texte
-cle = "CODE"  # utile pour le programme de Vigenere
-nbcle = len(cle) # retourner la longueur de la chaine de caracteres qui compose la cle
-quotient = 2 // nbcle #utile sur Vigenere
-reste = 2 % nbcle #utile sur Vigenere
+n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de définir la place du caractère à coder dans le texte
+cle = "CODE"  # utile pour la méthode de cryptage  Vigenère
+nbcle = len(cle) # retourner la longueur de la chaine de caractères qui compose la clé
+quotient = 2 // nbcle # utile pour la méthode de cryptage  Vigenère
+reste = 2 % nbcle # utile pour la méthode de cryptage  Vigenère
 
 
 
-def asci_diminu() :  #fonction qui transforme deux caracteres cote a cote en deux lettres contenues dans le tableau ASCII
+def asci_diminu() :  #fonction qui transforme deux caractères côte à côte en deux lettres contenues dans le tableau ASCII
 
-    for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caracteres cote a cote
+    for loop in range(2) : #boucle qui tourne deux fois pour coder les deux caractères côte à côte
 
             newCaractere = chr(ord(lettres[loop]) + 1) 
-            # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
-            # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
-	    # +1 = avancer de 1 rang pour sortir un nouveau caractere
+            # ord = fonction qui transforme la lettre associée au caractère à son chiffre complémentaire dans ASCII
+            # chr = fonction qui transforme chaque caractère en associant le chiffre du tableau ASCII en sa lettre associée
+	    # +1 = avancer de 1 rang pour retrouver le rang intial et donc pour sortir le caractère intial
 
-            print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes sur une meme ligne
+            print(newCaractere, end="") # sortir les 2 nouveaux caractères codés sur une même ligne
 
 
-def asci_lettres() :  # meme fonction 
+def asci_lettres() :  # même fonction 
 
     for loop in range(2):
 
         newCaractere = chr(ord(lettres[loop]) + 8) 
-	# +8 = avancer de 8 rangs pour sortir un nouveau caractere
+	# +8 = avancer de 8 rangs pour sortir un nouveau caractère
 
-        print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes sur une meme ligne
+        print(newCaractere, end="") # sortir les 2 nouveaux caractères codés sur une même ligne
 
 
 
-def notre_alphabet() : # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
+def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
-    for loop in range(2):
 
-        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caracteres
+    for loop in range(2): #boucle qui tourne deux fois pour coder les deux caractères côte à côte
+
+        for eachPos in range(50): # boucle qui tourne entierement dans notre tableau unique de 50 caractères
 
             if lettres[loop].upper() == alphabet[eachPos]:
              # condition
-             # si le caractere dans le texte qui est sous forme majuscule 
-	     # est identique a un des 50 caracteres repertories dans notre tableau
+             # si le caractère dans le texte qui est sous forme majuscule 
+	     # est identique a un des 50 caractères répertoriés dans notre tableau
 
-                print(alphabet[eachPos + 5], end="")  # afficher 2 nouveaux caracteres de 5 rangs superieur
+                print(alphabet[eachPos + 5], end="")  # afficher 2 nouveaux caractères de 5 rangs supérieurs
 
 
 
-def vige_nere() :  # fontion qui se refere au tableau que nous avons cree, qui prend en compte les caracteres speciaux
+def vige_nere() :  # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
     for loopi in range(reste):
 
-        for eatchpos in range(50): #chercher la lettre de la cle dans notre alphabet specifique
+        for eatchpos in range(50): #chercher la lettre de la clé dans notre alphabet spécifique
 
             if cle[loopi] == alphabet[eatchpos]: 
-	    # attribuer la lettre de la cle demandee a son postionnement dans le tableau de notre alphabet
+	    # attribuer la lettre de la clé demandé a son positionnement dans le tableau de notre alphabet
 
                 nvlcle = eatchpos 
 
                 for eachPos in range(50): #chercher la lettre à crypter dans notre alphabet specifique
 
                     if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]: 
-		    # faire la position de la lettre a crypter + le nombre de lettre de la cle * quotient tout en minuscule
-		    # pour être sur que ce caractère existe dans notre alphabet specifique 
+		    # faire la position de la lettre a crypter + le nombre de lettre de la clé * quotient
+		    # pour être sur que ce caractere existe dans notre alphabet spécifique 
 
                         print(alphabet[eachPos + nvlcle], end="") #afficher les 2 nouveaux caractères
 
 
 
-def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impair alors 
-	              # le dernier caractere va etre code selon une fonction specifique
+def texte_impaire() : # puisque chaque programme code pour 2 caractères côte à côte, si le texte est impair alors 
+	              # le dernier caractère va être codé selon une fonction spécifique
 
     dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) 
     # selon le tableau ASCII, convertir en chiffre puis en lettre 
     # puis avancer de 6 rangs
 
-    print(dernierelettre, end="") # afficher le dernier caractere code 
+    print(dernierelettre, end="") # afficher le dernier caractère codé 
 
-# Voici le programme principal de codage qui appelle les 5 methodes :
+# Voici le programme principal de codage qui appelle les 5 méthodes 
 
 while n < (nbtexte - 1): # boucle tant que conditonnelle
-	                 # tant que la variable curseur est inferieure a la longueur du texte a coder - 1 (car 0 equivaut a 1)
+	                 # tant que la variable curseur est inférieure à la longueur du texte à coder - 1 (car 0 équivaut a 1)
 
-    lettres = texte[n:n + 2] # chaque methode de cryptage code 2 caracteres cote a cote dans le texte
+    lettres = texte[n:n + 2] # chaque méthode de cryptage code 2 caractères côte à côte dans le texte
 
 
 
-    if n % 8 == 0 or n % 8 == 1: # si le reste de la variable n divise par 8 (nombre de methodes de codage) vaut 0 ou 1
+    if n % 8 == 0 or n % 8 == 1: # si le reste de la variable n divis par 8 (nombre de methodes de codage) vaut 0 ou 1
 
         asci_diminu() # alors on appelle la methode 1 (pour les 2 premiers caracteres)
 
 
 
-    elif n % 8 == 2 or n % 8 == 3: # si le reste de la variable n divise par 8 vaut 2 ou 3
+    elif n % 8 == 2 or n % 8 == 3: # si le reste de la variable n divisé par 8 vaut 2 ou 3
 
         asci_lettres() # on appelle la methode 2 (pour les 2 caracteres suivants)
 
 
 
-    elif n % 8 == 4 or n % 8 == 5: #si le reste de la variable n divise par 8 vaut 4 ou 5
+    elif n % 8 == 4 or n % 8 == 5: #si le reste de la variable n divisé par 8 vaut 4 ou 5
 
         notre_alphabet() # on appelle la methode 3 (pour les 2 caracteres suivants)
 
 
 
-    elif n % 8 == 6 or n % 8 == 7: #si le reste de la variable n divise par 8 vaut 6 ou 7
+    elif n % 8 == 6 or n % 8 == 7: #si le reste de la variable n divisé par 8 vaut 6 ou 7
 
         vige_nere() # on appelle la methode 4 (pour les 2 caracteres suivants)
 
 
 
     n = n + 2
-    # n prend des nouvelles valeurs de 2 en 2 pour appeler differentes methodes de cryptage (ce qui change le reste)
+    # de 2 en 2 pour que ce soit les 2 caractères suivant qui soient coder a chaque changement de méthode de cryptage
 
 
 if nbtexte % 2 == 1: # si le texte est impair car le reste vaut 1
 
-    texte_impaire()  # appeler pour le tout dernier caractere du texte la derniere methode de cryptage 
+    texte_impaire()  # appeler pour le tout dernier caractère du texte la dernière méthode de cryptage 
