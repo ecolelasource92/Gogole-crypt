@@ -11,7 +11,7 @@ fenetre["bg"] = "turquoise3" #mettre le fond de la fenetre en turquoise
 
 def crypte() :
 
-    texte = texteacrypter.get() 
+    texte = texteacrypter.get() #saisir comme "texte" le texte entrée a l'entrée "texteacrypter"
     global a #globaliser tous les "a" du programme pour que les "a" de chaque fonction soit le même "a"
     nbtexte = len(texte) 
     tableau = [0]*nbtexte #création d'un tableau comporter le meme nombre de case que le nombre de caractere du texte entré
