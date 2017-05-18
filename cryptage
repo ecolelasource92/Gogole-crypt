@@ -78,17 +78,18 @@ def vige_nere() :  # fontion qui se refere au tableau que nous avons cree, qui p
 
 
 def texte_impaire() : # puisque chaque programme code pour 2 caracteres cote a cote, si le texte est impair alors 
-	          # le dernier caractere va etre code selon une fonction specifique
+	              # le dernier caractere va etre code selon une fonction specifique
 
-    dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) # selon le tableau ASCII, convertir en chiffre puis en lettre 
-				      # puis avancer de 6 rangs
+    dernierelettre = chr(ord(texte[nbtexte - 1]) + 6) 
+    # selon le tableau ASCII, convertir en chiffre puis en lettre 
+    # puis avancer de 6 rangs
 
     print(dernierelettre, end="") # afficher le dernier caractere code 
 
 # Voici le programme principal de codage qui appelle les 5 methodes :
 
 while n < (nbtexte - 1): # boucle tant que conditonnelle
-	             # tant que la variable curseur est inferieure a la longueur du texte a coder - 1 (car 0 equivaut a 1)
+	                 # tant que la variable curseur est inferieure a la longueur du texte a coder - 1 (car 0 equivaut a 1)
 
     lettres = texte[n:n + 2] # chaque methode de cryptage code 2 caracteres cote a cote dans le texte
 
