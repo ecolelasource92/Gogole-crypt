@@ -71,7 +71,7 @@ def vige_nere() :  # fontion qui se refere au tableau que nous avons cree, qui p
                 for eachPos in range(50): #chercher la lettre à crypter dans notre alphabet specifique
 
                     if lettres[loopi + nbcle * quotient].upper() == alphabet[eachPos]: 
-		    # faire la position de la lettre a crypter + le nombre de lettre de la cle * quotient 
+		    # faire la position de la lettre a crypter + le nombre de lettre de la cle * quotient tout en minuscule
 		    # pour être sur que ce caractère existe dans notre alphabet specifique 
 
                         print(alphabet[eachPos + nvlcle], end="") #afficher les 2 nouveaux caractères
