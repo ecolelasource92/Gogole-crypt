@@ -26,7 +26,7 @@ def asci_diminu() :  #fonction qui transforme deux caracteres cote a cote en deu
             newCaractere = chr(ord(lettres[loop]) + 1) 
             # ord = fonction qui transforme la lettre associee au caractere a son chiffre complementaire dans ASCII
             # chr = fonction qui transforme chaque caractere en associant le chiffre du tableau ASCII en sa lettre associee
-	# +1 = avancer de 1 rang pour sortir un nouveau caractere
+	    # +1 = avancer de 1 rang pour sortir un nouveau caractere
 
             print(newCaractere, end="") # sortir les 2 nouveaux caracteres codes sur une meme ligne
 
