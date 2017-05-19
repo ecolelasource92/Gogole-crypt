@@ -22,6 +22,7 @@ def crypte() :
     a = 0
     cle = "CODE" #modifiable
     nbcle = len(cle) # decouper la cle en 4 caracteres car il y a 4 lettres dans CODE
+    quotient = 2// nbcle  # le quotient de la division du nombres de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle
     reste = 2 % nbcle 
     def asci_lettres() :
         global a
@@ -114,6 +115,7 @@ def decrypte():
     a = 0
     cle = "CODE"  # modifiable
     nbcle = len(cle)
+    quotient = 2// nbcle  # le quotient de la division du nombres de caracteres afilies a chaque programme de cryptage par le nombre de caracteres de la cle
     reste = 2 % nbcle
 
     def asci_lettres() :
