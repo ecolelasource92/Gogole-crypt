@@ -213,4 +213,4 @@ lebel["fg"] = "black" #mettre l'écriture de la sortie en noir
 lebel.place(x="400", y="550") #placement de la sortie
 texte5 = Label(fenetre,text="Attention, les accents ne sont pas lus par ce programme").pack() #creation d'une zone de texte en haut de la fenetre et centrée
 
-
+print ("~ | ^") 
