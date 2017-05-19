@@ -58,7 +58,7 @@ def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée
 
 def vige_nere() :  # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
-    for loopi in range(reste):
+    for loopi in range(reste): # le reste vaut 2 donc la boucle tourne 2 foix, pour 2 caracteres cote a cote
 
         for eatchpos in range(50): #chercher la lettre de la clé dans notre alphabet spécifique
 
