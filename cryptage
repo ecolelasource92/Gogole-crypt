@@ -27,7 +27,6 @@ def asci_diminu() :  #fonction qui transforme deux caractères côte à côte en
             # ord = fonction qui transforme la lettre associée au caractère à son chiffre complémentaire dans ASCII
             # chr = fonction qui transforme chaque caractère en associant le chiffre du tableau ASCII en sa lettre associée
 	    # +1 = avancer de 1 rang pour retrouver le rang intial et donc pour sortir le caractère intial
-
             print(newCaractere, end="") # sortir les 2 nouveaux caractères codés sur une même ligne
 
 
@@ -58,7 +57,7 @@ def notre_alphabet() : # fontion qui se réfère au tableau que nous avons crée
 
 def vige_nere() :  # fontion qui se réfère au tableau que nous avons crée, qui prend en compte les caractères spéciaux
 
-    for loopi in range(reste): # le reste vaut 2 donc la boucle tourne 2 foix, pour 2 caracteres cote a cote
+    for loopi in range(reste): # le reste vaut 2 donc la boucle tourne 2 fois, pour 2 caracteres cote a cote
 
         for eatchpos in range(50): #chercher la lettre de la clé dans notre alphabet spécifique
 
