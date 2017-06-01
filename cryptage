@@ -9,7 +9,7 @@ alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 
             "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
 
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet spécifique
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] # notre alphabet spécifique sous forme de liste
 
 n = 0 # variable-curseur qui selon son reste par la division euclidienne permet de définir la place du caractère à coder dans le texte
 cle = "CODE"  # utile pour la méthode de cryptage  Vigenère
